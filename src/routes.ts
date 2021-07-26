@@ -10,7 +10,8 @@ routes.get('/', (req: Request, res:Response) => {
 
 routes.post('/role', (RoleController.create))
 routes.get('/roles',RoleController.get)
- 
-
+routes.get('/role/:id',RoleController.getOne)
+routes.put('/role',RoleController.update)
+routes.delete('/role', RoleController.delete)
 
 export default routes;

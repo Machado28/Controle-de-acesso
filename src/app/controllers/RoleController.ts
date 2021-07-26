@@ -6,33 +6,68 @@ import 'reflect-metadata'
 class RoleController {
  
   async create(req: Request, res: Response) {
-    
     const roleRepository = getCustomRepository(RoleRepository)
-
-    const { name } = req.body;
- 
+    const { name,description } = req.body;
     const ExistRole = await roleRepository.findOne({name})
 
     if (ExistRole) {
       return res.status(400).json({ message: 'role already exists!' })
     }
+
     const role = roleRepository.create({
-      name
+      name,
+      description
     })
-   
     await roleRepository.save(role)
     
     return res.status(201).json(role)
   };
 
   async get(req: Request, res: Response) {
-    
+    const roleRepository = getCustomRepository(RoleRepository)
+    const ExistRole = await roleRepository.find()
+
+    if (ExistRole) {
+      const result = ExistRole
+
+      return res.status(400).json(result)
+    }
+    return res.status(402).json({ message: "roles not founds!" })
+  };
+
+  async getOne(req: Request, res: Response) {
     const id = req.params.id
     const roleRepository = getCustomRepository(RoleRepository)
     const ExistRole = await roleRepository.findOne(id)
 
     if (ExistRole) {
       const result = ExistRole
+      
+      return res.status(400).json(result)
+    }
+    return res.status(402).json({ message: "role not found!" })
+  };
+
+  async update(req: Request, res: Response) {
+    const {id,name,description} = req.body
+    const roleRepository = getCustomRepository(RoleRepository)
+    const ExistRole = await roleRepository.findOne(id)
+
+    if (ExistRole) {
+        const result= await  roleRepository.update({id:id},{name:name, description:description})
+
+      return res.status(400).json(result)
+    }
+    return res.status(402).json({ message: "role not found!" })
+  };
+
+  async delete(req: Request, res: Response) {
+    const {id,name} = req.body
+    const roleRepository = getCustomRepository(RoleRepository)
+    const ExistRole = await roleRepository.findOne({id})
+
+    if (ExistRole) {
+        const result= await  roleRepository.delete({id:id})
 
       return res.status(400).json(result)
     }

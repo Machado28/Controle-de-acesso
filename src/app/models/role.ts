@@ -8,6 +8,10 @@ class Role {
   
   @Column('varchar')
   name: string;
+
+  
+  @Column('varchar')
+  description: string;
   
   @CreateDateColumn()
   created_At: Timestamp;
