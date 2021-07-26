@@ -3,11 +3,11 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Timestamp, Up
 @Entity('role')
 class Role {
 
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('increment')
   id: string;
   
-  @Column()
-  nome: string;
+  @Column('varchar')
+  name: string;
   
   @CreateDateColumn()
   created_At: Timestamp;

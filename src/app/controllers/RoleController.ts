@@ -1,6 +1,7 @@
 import { Request, Response} from 'express'
 import {getCustomRepository} from 'typeorm'
 import RoleRepository from '../../repositories/RoleRepository';
+import 'reflect-metadata' 
 
 class RoleController {
  
@@ -8,14 +9,15 @@ class RoleController {
     
     const roleRepository = getCustomRepository(RoleRepository)
 
-    const { nome } = req.body;
-    const ExistRole = await roleRepository.findOne(nome)
+    const { name } = req.body;
+ 
+    const ExistRole = await roleRepository.findOne({name})
 
     if (ExistRole) {
       return res.status(400).json({ message: 'role already exists!' })
     }
     const role = roleRepository.create({
-      nome
+      name
     })
    
     await roleRepository.save(role)

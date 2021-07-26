@@ -11,21 +11,33 @@ export class typeUser1627230249358 implements MigrationInterface {
                         name: "id",
                         type: 'uuid',
                         isPrimary: true,
-                        generationStrategy: 'uuid',
-                        default:'uuid_generate_v4()'
+                        isNullable: false,
+                        isGenerated: true,
+                        default:'uuid_generate_v4()' 
                     },
                     {
-                        name: 'nome',
-                        type: 'varchar(30)'
+                        name: 'name',
+                        type: 'varchar',
+                        isUnique: true,
+                        isNullable:false,
+
+                    },
+                    {
+                        name: 'description',
+                        type: 'varchar',
+                        isUnique: true,
+                        isNullable:false,
 
                     },
                     {
                         name: 'created_At',
-                        type:'timestamp'
+                        type: 'timestamp',
+                        default:'now()'
                     },
                     {
                         name: 'updated_At',
-                        type:'timestamp'
+                        type:'timestamp',
+                        default:'now()'
                     }
                 ]
 

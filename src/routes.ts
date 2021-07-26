@@ -9,7 +9,7 @@ routes.get('/', (req: Request, res:Response) => {
 })
 
 routes.post('/role', (RoleController.create))
-routes.get('/user',RoleController.get)
+routes.get('/roles',RoleController.get)
  
 
 
