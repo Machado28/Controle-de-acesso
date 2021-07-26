@@ -1,6 +1,6 @@
 import { Router} from 'express'
 import { Request, Response } from 'express'
-import Role_controller, { TypeSchool_controller, TypeContact_controller,  TypeMatricula_controller, TypeYearTeach_controller}from './app/controllers'
+import Role_controller, { TypeSchool_controller, TypeContact_controller,  TypeMatricula_controller, TypeYearTeach_controller, Schooling_controller}from './app/controllers'
 
 const routes = Router()
 
@@ -40,6 +40,13 @@ routes.post('/type_year_teach', (TypeYearTeach_controller.create))
 routes.get('/type_year_teachs',TypeYearTeach_controller.get)
 routes.get('/type_year_teach/:id',TypeYearTeach_controller.getOne)
 routes.put('/type_year_teach',TypeYearTeach_controller.update)
-routes.delete('/type_year_teacha', TypeYearTeach_controller.delete)
+routes.delete('/type_year_teach', TypeYearTeach_controller.delete)
+
+//CRUD SCHOOLING ROUTES
+routes.post('/schooling', (Schooling_controller.create))
+routes.get('/schoolings',Schooling_controller.get)
+routes.get('/schooling/:id',Schooling_controller.getOne)
+routes.put('/schooling',Schooling_controller.update)
+routes.delete('/schooling', Schooling_controller.delete)
 
 export default routes;
