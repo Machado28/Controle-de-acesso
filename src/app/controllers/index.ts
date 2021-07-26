@@ -1,10 +1,11 @@
 import RoleController from "./RoleController";
 import TypeSchoolController from "./TypeSchoolController"; 
-import TypeContactController from "./TypeContactController"; 
-
-
+import TypeContactController from "./TypeContactController";
+import TypeMatriculaController from "./TypeMatriculaController"; 
+ 
 const Role_controller = RoleController 
 export default Role_controller;
 
 export const TypeSchool_controller = TypeSchoolController
-export const TypeSchool_Controller = TypeContactController
+export const TypeContact_controller = TypeContactController
+export const TypeMatricula_controller = TypeMatriculaController
