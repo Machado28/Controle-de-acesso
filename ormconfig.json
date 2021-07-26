@@ -3,13 +3,13 @@
   "host": "localhost",
   "port": 5432,
   "username": "postgres",
-  "password": "anita",
-  "database": "beaty_app_first",
+  "password": "1machadinho",
+  "database": "gestao_escolar",
   "entities": [
      "src/app/models/*.ts"
   ],
   "migrations": [
-     "src/database/migrations/*.ts"
+     "src/database/migrations/*.ts" 
   ],
   "cli":{
       "migrationsDir": "src/database/migrations"

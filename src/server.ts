@@ -1,14 +1,14 @@
-import 'reflect-metadata';
-import express from 'express';
-import routes from './routes';
+import "reflect-metadata"
+import express from 'express'
+import routes from './routes'
+import './database/index'
 
-import './database/connection';
+const Server = express()
 
-const app = express();
+Server.use(express.json())
+Server.use(routes)
 
-app.use(express.json());
-app.use(routes);
+Server.listen(4444, () => {
+  console.log('server started on port 4444')
+})
 
-app.listen(4444, () => {
-  console.log('Server running!');
-});
