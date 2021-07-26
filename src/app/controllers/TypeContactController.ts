@@ -50,12 +50,13 @@ class TypeContactController {
   };
 
   async update(req: Request, res: Response) {
-    const {id,name,description} = req.body
+    const id = req.params.id
+    const {name,description} = req.body
     const typeContactRepository = getCustomRepository(TypeContactRepository)
     const ExisttypeContact = await typeContactRepository.findOne(id)
 
     if (ExisttypeContact) {
-        const result= await  typeContactRepository.update({id:id},{name:name})
+        const result= await  typeContactRepository.update(id,{name})
 
       return res.status(201).json(result)
     }
@@ -63,12 +64,13 @@ class TypeContactController {
   };
 
   async delete(req: Request, res: Response) {
-    const {id,name} = req.body
+    const id = req.params.id
+    const {name} = req.body
     const typeContactRepository = getCustomRepository(TypeContactRepository)
-    const ExisttypeContact = await typeContactRepository.findOne({id})
+    const ExisttypeContact = await typeContactRepository.findOne(id)
 
     if (ExisttypeContact) {
-        const result= await  typeContactRepository.delete({id:id})
+        const result= await  typeContactRepository.delete(id)
 
       return res.status(200).json(result)
     }

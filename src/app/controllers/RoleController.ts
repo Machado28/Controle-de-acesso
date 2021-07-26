@@ -49,7 +49,8 @@ class RoleController {
   };
 
   async update(req: Request, res: Response) {
-    const {id,name,description} = req.body
+    const id = req.params.id
+    const {name,description} = req.body
     const roleRepository = getCustomRepository(RoleRepository)
     const ExistRole = await roleRepository.findOne(id)
 
@@ -62,9 +63,9 @@ class RoleController {
   };
 
   async delete(req: Request, res: Response) {
-    const {id,name} = req.body
+    const id = req.params.id
     const roleRepository = getCustomRepository(RoleRepository)
-    const ExistRole = await roleRepository.findOne({id})
+    const ExistRole = await roleRepository.findOne(id)
 
     if (ExistRole) {
         const result= await  roleRepository.delete({id:id})

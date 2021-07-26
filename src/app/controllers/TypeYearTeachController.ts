@@ -1,7 +1,7 @@
 import 'reflect-metadata' 
 import { Request, Response } from 'express'
 import {getCustomRepository} from 'typeorm'
-import TypeYearTeachRepository from '../../repositories/TypeYearTeachRepository';
+import TypeYearTeachRepository from '../../repositories/TypeYearTeach';
 
 
 class TypeYearTeachController {

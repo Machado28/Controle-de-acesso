@@ -50,7 +50,8 @@ class SchoolingController {
   };
 
   async update(req: Request, res: Response) {
-    const {id,name,description} = req.body
+    const id = req.params.id
+    const {name,description} = req.body
     const schoolingRepository = getCustomRepository(SchoolingRepository)
     const ExistSchooling = await schoolingRepository.findOne(id)
 
@@ -63,7 +64,8 @@ class SchoolingController {
   };
 
   async delete(req: Request, res: Response) {
-    const {id,name} = req.body
+    const id = req.params.id
+    const {name} = req.body
     const schoolingRepository = getCustomRepository(SchoolingRepository)
     const ExistSchooling = await schoolingRepository.findOne({id})|| await schoolingRepository.findOne({name})
 
