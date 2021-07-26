@@ -7,9 +7,11 @@ class RoleController {
  
   async create(req: Request, res: Response) {
     const roleRepository = getCustomRepository(RoleRepository)
-    const { name,description } = req.body;
+    const { name,description,idade } = req.body;
     const ExistRole = await roleRepository.findOne({name})
-
+    if (idade > 12) {
+      console.log("aduto:"+idade)
+    }
     if (ExistRole) {
       return res.status(400).json({ message: 'role already exists!' })
     }
