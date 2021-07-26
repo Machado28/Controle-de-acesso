@@ -56,7 +56,7 @@ class RoleController {
     if (ExistRole) {
         const result= await  roleRepository.update({id:id},{name:name, description:description})
 
-      return res.status(400).json(result)
+      return res.status(201).json(result)
     }
     return res.status(402).json({ message: "role not found!" })
   };
@@ -69,7 +69,7 @@ class RoleController {
     if (ExistRole) {
         const result= await  roleRepository.delete({id:id})
 
-      return res.status(400).json(result)
+      return res.status(200).json(result)
     }
     return res.status(402).json({ message: "role not found!" })
   }
