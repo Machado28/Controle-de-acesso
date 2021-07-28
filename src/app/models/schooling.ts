@@ -1,5 +1,6 @@
 import 'reflect-metadata'
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn, OneToMany } from 'typeorm';
+import Level from './level';
 
 @Entity('schooling')
 class Schooling {
@@ -7,7 +8,7 @@ class Schooling {
   @PrimaryGeneratedColumn('increment')
   id: string;
   
-  @Column('varchar')
+   @Column({nullable:true})
   name: string;
   
   @Column('varchar')
@@ -16,6 +17,8 @@ class Schooling {
   @CreateDateColumn()
   created_At: Timestamp;
   
+  @OneToMany(type => Level, schooling => Schooling)
+  levels: Level[];
 
   @UpdateDateColumn()
   updated_At: Timestamp;

@@ -2,7 +2,8 @@ import { Router} from 'express'
 import { Request, Response } from 'express'
 import Role_controller, {
   TypeSchool_controller, TypeContact_controller, TypeMatricula_controller,
-  TypeYearTeach_controller, Schooling_controller,ClassRoom_controller
+  TypeYearTeach_controller, Schooling_controller, ClassRoom_controller,
+  Level_controller
 } from './app/controllers'
 
 const routes = Router()
@@ -58,5 +59,14 @@ routes.get('/classrooms',ClassRoom_controller.get)
 routes.get('/classroom/:id',ClassRoom_controller.getOne)
 routes.put('/classroom/:id',ClassRoom_controller.update)
 routes.delete('/classroom/:id', ClassRoom_controller.delete)
+
+
+//CRUD LESSON ROUTES
+routes.post('/level', Level_controller.create)
+routes.get('/levels',Level_controller.get)
+routes.get('/level/:id',Level_controller.getOne)
+routes.put('/level/:id',Level_controller.update)
+routes.delete('/level/:id', Level_controller.delete)
+
 
 export default routes;
