@@ -68,7 +68,7 @@ class RoleController {
     const ExistRole = await roleRepository.findOne(id)
 
     if (ExistRole) {
-        const result= await  roleRepository.delete({id:id})
+        const result= await  roleRepository.delete(id)
 
       return res.status(200).json(result)
     }

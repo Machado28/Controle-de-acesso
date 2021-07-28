@@ -65,7 +65,7 @@ class TypeContactController {
 
   async delete(req: Request, res: Response) {
     const id = req.params.id
-    const {name} = req.body
+    
     const typeContactRepository = getCustomRepository(TypeContactRepository)
     const ExisttypeContact = await typeContactRepository.findOne(id)
 

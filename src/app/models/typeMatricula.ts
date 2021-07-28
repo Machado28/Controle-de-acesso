@@ -4,8 +4,8 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Timestamp, Up
 @Entity('type_Matricula')
 class TypeMatricula {
 
-  @PrimaryGeneratedColumn('increment')
-  id: string;
+  @PrimaryGeneratedColumn('uuid',)
+  id: {type:'varchar'};
   
   @Column('varchar')
   name: string;

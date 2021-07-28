@@ -6,6 +6,8 @@ import TypeYearTeachController from "./TypeYearTeachController";
 import SchoolingController from './SchoolingController';
 import ClassRoomController from "./ClassRoomController";
 import LevelController from "./LevelController";
+import ProvinceController from "./ProvinceController";
+import CountryController from "./CountryController";
 
 const Role_controller = RoleController 
 export default Role_controller;
@@ -17,3 +19,5 @@ export const TypeYearTeach_controller = TypeYearTeachController
 export const Schooling_controller = SchoolingController
 export const ClassRoom_controller = ClassRoomController
 export const Level_controller = LevelController
+export const Country_controller = CountryController
+export const Province_controller = ProvinceController

@@ -65,9 +65,9 @@ class classRoomController {
 
   async delete(req: Request, res: Response) {
     const id = req.params.id
-    const { number } = req.body
+    
     const classRoomRepository = getCustomRepository(ClassRoomRepository)
-    const ExistClassRoom = await classRoomRepository.findOne(id)|| await classRoomRepository.findOne({number})
+    const ExistClassRoom = await classRoomRepository.findOne(id) 
 
     if (ExistClassRoom) {
         const result= await  classRoomRepository.delete(id)

@@ -75,7 +75,7 @@ class LevelController {
     const ExistLevel = await levelRepository.findOne(id)
 
     if (ExistLevel) {
-        const result= await  levelRepository.delete({id:id})
+        const result= await  levelRepository.delete(id)
 
       return res.status(200).json(result)
     }

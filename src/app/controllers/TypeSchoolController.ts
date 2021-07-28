@@ -63,12 +63,12 @@ class TypeSchoolController {
   };
 
   async delete(req: Request, res: Response) {
-    const {id,name} = req.body
+    const id = req.params.id
     const typeSchoolRepository = getCustomRepository(TypeSchoolRepository)
-    const ExistTypeSchool = await typeSchoolRepository.findOne({id})
+    const ExistTypeSchool = await typeSchoolRepository.findOne(id)
 
     if (ExistTypeSchool) {
-        const result= await  typeSchoolRepository.delete({id:id})
+        const result= await  typeSchoolRepository.delete(id)
 
       return res.status(400).json(result)
     }

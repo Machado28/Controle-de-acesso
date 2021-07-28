@@ -63,12 +63,13 @@ class TypeMatriculaController {
   };
 
   async delete(req: Request, res: Response) {
-    const {id,name} = req.body
+    const id = req.params.id
+
     const typeMatriculaRepository = getCustomRepository(TypeMatriculaRepository)
-    const ExisttypeMatricula = await typeMatriculaRepository.findOne({id})
+    const ExisttypeMatricula = await typeMatriculaRepository.findOne(id)
 
     if (ExisttypeMatricula) {
-        const result= await  typeMatriculaRepository.delete({id:id})
+        const result= await  typeMatriculaRepository.delete(id)
 
       return res.status(200).json(result)
     }

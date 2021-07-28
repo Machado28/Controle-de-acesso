@@ -65,12 +65,11 @@ class SchoolingController {
 
   async delete(req: Request, res: Response) {
     const id = req.params.id
-    const {name} = req.body
     const schoolingRepository = getCustomRepository(SchoolingRepository)
-    const ExistSchooling = await schoolingRepository.findOne({id})|| await schoolingRepository.findOne({name})
+    const ExistSchooling = await schoolingRepository.findOne(id) 
 
     if (ExistSchooling) {
-        const result= await  schoolingRepository.delete({id:id})
+        const result= await  schoolingRepository.delete(id)
 
       return res.status(200).json(result)
     }

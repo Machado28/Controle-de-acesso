@@ -62,12 +62,12 @@ class TypeYearTeachController {
   };
 
   async delete(req: Request, res: Response) {
-    const {id,name} = req.body
+    const id = req.params.id
     const typeYearTeachRepository = getCustomRepository(TypeYearTeachRepository)
-    const ExistTypeYearTeach = await typeYearTeachRepository.findOne({id})
+    const ExistTypeYearTeach = await typeYearTeachRepository.findOne(id)
 
     if (ExistTypeYearTeach) {
-        const result= await  typeYearTeachRepository.delete({id:id})
+        const result= await  typeYearTeachRepository.delete(id)
 
       return res.status(400).json(result)
     }
